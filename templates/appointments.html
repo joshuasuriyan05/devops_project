@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Appointments</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Appointment Manager</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="messages">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <input type="text" name="patient" placeholder="Patient Name" required>
+      <input type="text" name="doctor" placeholder="Doctor Name" required>
+      <input type="datetime-local" name="time" required>
+      <button type="submit" class="btn">Book Appointment</button>
+    </form>
+
+    <h2>Current Appointments</h2>
+    {% if appointments %}
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Patient</th><th>Doctor</th><th>Time</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for appt in appointments %}
+          <tr>
+            <td>{{ appt.id }}</td>
+            <td>{{ appt.patient }}</td>
+            <td>{{ appt.doctor }}</td>
+            <td>{{ appt.time }}</td>
+            <td><a href="{{ url_for('delete_appointment', appointment_id=appt.id) }}" class="delete-btn">Cancel</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No appointments booked yet.</p>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="btn secondary">🏠 Back to Home</a>
+  </div>
+</body>
+</html>

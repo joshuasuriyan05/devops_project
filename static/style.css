@@ -1,0 +1,91 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(120deg, #d4f1f9, #f9f9f9);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 700px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.btn {
+  background-color: #0078D7;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+}
+
+.secondary {
+  background-color: #666;
+}
+
+.secondary:hover {
+  background-color: #444;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.messages {
+  list-style: none;
+  padding: 0;
+}
+
+.success { color: green; }
+.error { color: red; }
